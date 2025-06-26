@@ -1,6 +1,6 @@
 # 📚 AgRAG
 
-Este projeto implementa um sistema de Perguntas e Respostas (Q&A) usando a técnica de RAG (Retrieval-Augmented Generation), baseado em um arquivo PDF com conteúdo técnico (como perguntas e respostas sobre a cultura do milho).
+Este projeto implementa um sistema de Perguntas e Respostas (Q&A) usando a técnica de RAG (Retrieval-Augmented Generation), baseado em um arquivo PDF com conteúdo técnico (como perguntas e respostas sobre uma cultura).
 
 ## 🧠 Tecnologias utilizadas
 
@@ -19,7 +19,8 @@ Este projeto implementa um sistema de Perguntas e Respostas (Q&A) usando a técn
     │   ├── __init__.py
     │   ├── RAG_QA_Gemma_PDF.ipynb
     │   └── data/
-    │       └── 500perguntasmilho.pdf
+    │       ├── 500perguntasmilho.pdf
+    |       └── 500perguntassoja.pdf
     ├── README.md
     ├── .gitignore
     ├── LICENSE
@@ -48,7 +49,7 @@ ollama run gemma3:1b
 ## 🌐 Exemplo de uso
 
 ```python
-pergunta = "Como controlar pulgões no milho?"
+pergunta = "Qual importância do controle biológico na soja?"
 resposta = qa_chain.invoke(pergunta)
 print(resposta["result"])
 ```
@@ -61,7 +62,7 @@ print(resposta["result"])
 ## 📄 Fonte dos dados
 
 Estou utilizando o PDF oficial da Embrapa:
-[Milho: O produtor pergunta, a Embrapa responde](https://www.embrapa.br/publicacoes-e-bibliotecas/colecao-500-perguntas-500-respostas)
+[Coleção 500 Perguntas e 500 Respostas - Embrapa](https://www.embrapa.br/publicacoes-e-bibliotecas/colecao-500-perguntas-500-respostas)
 
 ---
 
