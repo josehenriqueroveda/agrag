@@ -17,10 +17,11 @@ Este projeto implementa um sistema de Perguntas e Respostas (Q&A) usando a técn
 └── agrag/
     ├── src/
     │   ├── __init__.py
+    │   ├── main.py
     │   ├── RAG_QA_Gemma_PDF.ipynb
     │   └── data/
-    │       ├── 500perguntasmilho.pdf
-    |       └── 500perguntassoja.pdf
+    │       ├── milho.pdf
+    |       └── soja.pdf
     ├── README.md
     ├── .gitignore
     ├── LICENSE
@@ -41,17 +42,22 @@ ollama pull gemma3:1b
 ollama run gemma3:1b
 ```
 
-3. Rode o notebook `RAG_QA_Gemma_PDF.ipynb` passo a passo:
-   - O PDF será carregado e dividido em pedaços
-   - Os textos serão embeddados e indexados com FAISS
-   - As perguntas serão respondidas com base no conteúdo extraído do PDF
+3. Rode o arquivo `main.py` da seguinte forma:
+```shell
+python main.py --crop "soja" --question "Qual importância do controle biológico na soja?"
+```
 
 ## 🌐 Exemplo de uso
 
-```python
-pergunta = "Qual importância do controle biológico na soja?"
-resposta = qa_chain.invoke(pergunta)
-print(resposta["result"])
+```shell
+> python .\src\main.py --crop "milho" --question "Qual população ideal de plantas por hectare?"
+
+Carregando e processando o PDF...
+Criando o banco de dados de vetores...
+Configurando o chain de Q&A...
+Enviando a pergunta para o modelo...
+
+>> A população ideal de plantas por hectare é de 50 a 60 mil.
 ```
 
 ## 📌 Dicas
